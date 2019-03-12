@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+    h3 Create a new student record
+    form(method="POST", action="../insertStudent",autocomplete='on')
+        .form-group
+            label(for="ONID") ONID 
+            input#ONID.form-control( name="ONID",required,autofocus="autofocus", placeholder="Enter the ONID")
+        .form-group
+            label(for="Name") Name 
+            input#Name.form-control( name="Name",required,autofocus="autofocus", placeholder="Enter the Name")
+        .form-group
+            label(for="Team") Team Name 
+            input#Team.form-control( name="Team",required,autofocus="autofocus", placeholder="Enter the Team Name")
+        <hr>
+        .form-group
+            button.btn.btn-primary(type="submit") Save

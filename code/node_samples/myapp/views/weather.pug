@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+    h3 The temperature of the city is #{data.temp}
+    <BR>
+    <BR>
+    h3 This form POSTs
+    form(method="POST", action="./formPost",autocomplete='on')
+        .form-group
+            label(for="Email") Enter Temperature
+            input#username.form-control( name="username",required,autofocus="autofocus", placeholder="Enter temperature")
+        <hr>
+        .form-group
+            button.btn.btn-primary(type="submit") Save
+    

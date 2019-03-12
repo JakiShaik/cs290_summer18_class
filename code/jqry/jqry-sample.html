@@ -1,0 +1,40 @@
+<html>
+<head>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+        </script>
+        <style>
+                .nice {background-color: orange; color: white;}
+        </style>
+</head>
+<body>
+        <span id="stuff"></span>
+        <br>
+        <br>
+        <form><input id="inpt" onchange="doit()"></form>
+        <div id="clickme" onclick="toggle()">Click me!</div>
+        <div id="mydiv" onclick="addstuff()">Add stuff</div>
+        <script>
+            function doit() {
+                $("#stuff").text($("#inpt").val());
+            }
+            function toggle() {
+                var els = $("#clickme");
+                if (!els.hasClass('nice'))
+                    els.addClass('nice');
+                else
+                    els.removeClass('nice');
+            }
+            function addstuff() {
+  var kids = $(".kid"); // this creates a "wrapped set" around all nodes with class=kid
+  if (!kids.length) {
+    for (var i = 0; i < 10; i++)
+      $('#mydiv').append('<div class="kid">'+i+'</div>');
+  } else {
+    kids.remove();
+  }
+}
+        </script>        
+</body>
+</html>

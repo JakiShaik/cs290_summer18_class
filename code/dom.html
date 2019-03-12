@@ -1,0 +1,21 @@
+<!Doctype html>
+<html>
+  <head>
+    <title>My home page</title>
+  </head>
+  <body>
+    <h1>My home page</h1>
+    <p>Hello, I am Marijn and this is my home page.</p>
+    <p>I also wrote a book! Read it
+      <a href="http://eloquentjavascript.net">here</a>.</p>
+      <button id="my-button">Click me!</button>  
+      <div id="content">
+            <p onclick="setTimeout(function(){alert('You clicked the P tag')},1000);">This is a paragraph.</p>
+            <p onmouseover="alert('Mouse hovered to second P tag')">This is a paragraph.</p>
+            <p onclick="style.color='red'">This is a paragraph.</p>
+        </div>       
+        <a class="no-default">Google</a>
+      <script src="dom.js"></script>
+       
+    </body>
+</html>

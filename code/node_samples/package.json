@@ -1,0 +1,17 @@
+{
+  "name": "node_samples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fs-demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.1",
+    "axios": "^0.18.0",
+    "express": "^4.16.3"
+  }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+            </script>
+    </head>
+    <body>
+        <div id="clickme" onclick="startAjax()">Click me</div>
+        <script>
+        function startAjax() {
+          $("#clickme").text("Calling server");
+          $.ajax({url:"somefile.xml",
+             success:callbackFunction, error:errorFunction}
+          );
+        }
+        function callbackFunction(data,info) {
+            console.log(data);
+          $("#clickme").text("result:"+data);
+        }
+        function errorFunction(data,info) {
+          $("#clickme").text("error occurred:"+info);
+        }
+        </script>
+    </body>
+</html>
+        
+        

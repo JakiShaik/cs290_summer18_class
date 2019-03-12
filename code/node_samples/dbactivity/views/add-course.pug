@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+    h3 Create a new course record
+    form(method="POST", action="../insertCourse",autocomplete='on')
+        .form-group
+            label(for="NUMBER") NUMBER 
+            input#NUMBER.form-control( name="NUMBER",required,autofocus="autofocus", placeholder="Enter the course Number")
+        .form-group
+            label(for="NAME") NAME 
+            input#Name.form-control( name="NAME",required,autofocus="autofocus", placeholder="Enter the Name of the course")
+        .form-group
+            label(for="CREDITS") CREDITS 
+            input#CREDITS.form-control( name="CREDITS",required,autofocus="autofocus", placeholder="Enter the number of credits")
+        <hr>
+        .form-group
+            button.btn.btn-primary(type="submit") Save

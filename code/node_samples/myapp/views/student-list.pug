@@ -1,0 +1,61 @@
+extends layout
+
+block content
+
+    .container
+    .row
+      .col-sm-5
+        h2 Students in CS290
+      .col-sm-6.align-right
+        input(type='submit',name='save',value='Add Student',onclick='enroll()').btn.btn-info.float-right
+    br
+    table.table.table-hover
+      thead.thead-inverse
+        tr
+          th.cell #
+          th.cell ONID
+          th.cell Name
+          th.cell Project-team
+      - var index = 1
+      - students.forEach(function(student) {
+        tr
+          th(scope='row') #{index}
+          td.cell #{student.ONID}
+          td.cell #{student.NAME}
+          td.cell #{student.team}
+          td.cell
+            button.btn.btn-info(type="button" onclick='edit('+JSON.stringify(student)+')') Edit
+          td.cell
+            form(id="deleteStudentform"+student.SNO,method="POST", action="../deleteStudent")
+              input(type='hidden',name='id',value=student.SNO)
+              input(type='button', name='delete', value='Delete' id="deleteStudentBtn" onClick='append('+JSON.stringify(student)+')' data-toggle="modal" data-target="#confirm-delete").btn.btn-danger
+          - index ++
+      - }) 
+    #confirm-delete.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-body Are you sure you want to delete this student?
+            input(type='hidden',id='deleteId')
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+            a#submitModal.btn.btn-danger(href='#') Delete
+    script.
+        function edit(student){
+            console.log(student);
+        location="../editStudent?studentId=" + student.SNO;
+        };
+
+        function enroll(){
+        href="../addStudent";
+        window.location.href = this.href;
+        };
+
+        function append(e){
+        $('#deleteId').val(e.SNO);
+        };
+
+        $('#submitModal').click(function () {
+            var deleteId = $('#deleteId').val()
+            var x ='#deleteStudentform'+deleteId
+            $(x).submit();
+        });
